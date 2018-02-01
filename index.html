@@ -48,12 +48,14 @@ $(document).ready(function(){
     client_email = $("#to").val();
     url = $("#url").val();
     strategy = $("input[name=strategy]:checked").val();
+    $("p").append("Setting sights on your page speed...")
   
     $.get("http://localhost:3000/send", {client_email:client_email, url:url, strategy:strategy}, function(data){
         if(data){
-          console.log($("input[name=strategy]:checked").val())
-          console.log("hi")
-          console.log(data)
+            console.log($("input[name=strategy]:checked").val())
+            console.log("hi")
+            console.log(data)
+            $("p").empty();
             $("p").append("RadarGun clocked your page speed at "+data+"/100");
           }
         });
